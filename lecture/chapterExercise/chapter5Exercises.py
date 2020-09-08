@@ -50,5 +50,3 @@ def input_stick_length():
 
 
 is_triangle(*input_stick_length())
-
-# Exercise 5.4
