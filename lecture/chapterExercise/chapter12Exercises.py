@@ -3,7 +3,8 @@ def sum_all(*args):
     return sum(args)
 
 
-print(sum_all(1, 2, 3, 4))
+if __name__ == "__main__":
+    print(sum_all(1, 2, 3, 4))
 
 
 # Exercise 12.1
@@ -18,7 +19,8 @@ def most_frequent():
         return sorted(list(char_frequent.items()), key=lambda x: x[1], reverse=True)
 
 
-print(most_frequent())
+if __name__ == "__main__":
+    print(most_frequent())
 
 
 # Exercise 12.2
@@ -43,8 +45,8 @@ def anagram1(words_list):
     for elm in anagram_dict.values():
         if len(elm) > 1:
             result_list.append(sorted(list(set(elm))))
-            print(elm)
-    return result_list
+            # print(elm)
+    return result_list, anagram_dict
 
 
 # Exercise 12.2.2
@@ -55,11 +57,12 @@ def anagram2(words_list):
         length_anagram_list.append((len(elm), elm))
     for length, anagram in sorted(length_anagram_list, reverse=True):
         anagram_list.append(anagram)
-        print(anagram)
+        # print(anagram)
     return anagram_list
 
 
-anagram2(anagram1(words_list))
+if __name__ == "__main__":
+    anagram2(anagram1(words_list))
 
 
 # Exercise 12.2.2
@@ -75,16 +78,17 @@ def anagram3(words_list):
     for key, value in anagram_dict.items():
         if len(value) > bingos[1]:
             bingos = (key, len(value))
-            print(bingos)
+            # print(bingos)
     return bingos
 
 
-anagram3(words_list)
+if __name__ == "__main__":
+    anagram3(words_list)
 
 
 # Exercise 12.2.3
 def metathesis(word_list):
-    anagram_list = anagram1(words_list)
+    anagram_list = anagram1(words_list)[0]
     metathesis_list = []
     for sublist in anagram_list:
         for first_index in range(len(sublist))[:-1]:
@@ -97,8 +101,9 @@ def metathesis(word_list):
                         compare_list.append(False)
                 if compare_list.count(False) == 2:
                     metathesis_list.append((sublist[first_index], sublist[second_index]))
-    print(metathesis_list)
+    # print(metathesis_list)
     return metathesis_list
 
 
-metathesis(words_list)
+if __name__ == "__main__":
+    metathesis(words_list)
