@@ -1,5 +1,5 @@
 class Time:
-    def __init__(self, hour, minute, second):
+    def __init__(self, hour=0, minute=0, second=0):
         self.hour = hour
         self.minute = minute
         self.second = second
@@ -43,7 +43,7 @@ class Time:
 
     # Exercise 16.1
     def mul_time(self, num):
-        time = Time(0, 0, 0)
+        time = Time()
         time.int_to_time(num * self.time_to_int())
         return time
 
